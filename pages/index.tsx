@@ -1,12 +1,18 @@
 import type { NextPage } from 'next'
+import styles from '../styles/Home.module.scss'
 import Head from 'next/head'
 import Image from 'next/image'
+
 import { ChatRoom } from '../components/ChatRoom'
 import { SignIn } from '../components/SignIn'
 import { SignOut } from '../components/SignOut'
-import styles from '../styles/Home.module.scss'
+import { useContext } from 'react'
+import { AuthContext } from '../context/AuthContext'
 
 const Home: NextPage = () => {
+
+  const user = useContext(AuthContext);  
+
   return (
     <div>
       <Head>
@@ -17,7 +23,7 @@ const Home: NextPage = () => {
 
       <main>
         <header>
-          <h1>⚛️🔥💬</h1>
+          <h1>⚛️Family Chat</h1>
           <SignOut />
         </header>
 
