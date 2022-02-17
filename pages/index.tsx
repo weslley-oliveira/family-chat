@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 import styles from '../styles/Home.module.scss'
 import Head from 'next/head'
-import Image from 'next/image'
+
+import { GiThreeFriends } from 'react-icons/gi';
 
 import { ChatRoom } from '../components/ChatRoom'
 import { SignIn } from '../components/SignIn'
@@ -11,8 +12,8 @@ import { AuthContext } from '../context/AuthContext'
 
 const Home: NextPage = () => {
 
-  const user = useContext(AuthContext);  
-
+  const user = useContext(AuthContext); 
+ 
   return (
     <div>
       <Head>
@@ -22,8 +23,13 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <header>
-          <h1>⚛️Family Chat</h1>
+        <header className={styles.header}>
+          <div>
+            <div className={styles.logo}>
+              <span><GiThreeFriends/></span>
+            </div>            
+            <h1>Family Chat</h1>
+          </div>
           <SignOut />
         </header>
 

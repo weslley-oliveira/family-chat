@@ -1,0 +1,41 @@
+$base-color: #F0F2F5;
+
+.header {   
+    background-color: $base-color;
+    
+    padding: .5rem 1rem;
+
+    display: flex;
+    justify-content: space-between;
+
+    div {
+        display: flex;
+        align-items: center;
+        
+        .logo {            
+            border-radius: 100%;
+            width: 45px;
+            height: 45px;
+
+            background-color: white;
+
+            margin-right: 0.75rem;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span{                  
+                font-size: 2rem;  
+            }
+        }
+
+        
+
+        h1 {
+            font-size: 16px;
+            font-weight: lighter;
+        }
+    }
+    
+}
