@@ -15,6 +15,7 @@ export function ChatRoom(){
 
     useEffect(() => {
         dummy.current.scrollIntoView({ behavior: 'smooth' });
+        scrollDown()
         checkLast()
       });    
     
