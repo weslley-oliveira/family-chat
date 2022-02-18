@@ -36,7 +36,7 @@ const Home: NextPage = () => {
         </header>
         :""}
 
-        <section>
+        <section className={styles.section}>
           {user ? <ChatRoom /> : <SignIn />}
         </section>
       </main>      
