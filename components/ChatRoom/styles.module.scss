@@ -53,13 +53,13 @@
 
 .messageSent {
     display: flex;
-    align-items: center;  
+    align-items: baseline;  
 
     flex-direction: row-reverse;
     
     margin: 0.5rem 0rem;
 
-    img {
+    .photo {
         width: 40px;
         height: 40px;
 
@@ -67,33 +67,44 @@
 
         margin: 0rem 0.2rem;
     }
+    .semPhoto {
+        width: 40px !important;
+        margin: -2rem 0.2rem;
+        height: 40px;
+    }
 
     p {
-        margin: 0rem 0.2rem;
+        margin: -0.2rem 0.2rem;
         background-color: #D9FDD3;
         padding: 0.25rem 0.75rem;
         border-radius: 5px;
         box-shadow: 1px 1px rgba(0, 0, 0, 0.233);
     }
+
+    
     
 }
 
 .messageReceived {
     display: flex;
-    align-items: center;
+    align-items: baseline;  
     
     margin: 0.5rem 0rem;
   
-    img {
+    .photo {
         width: 40px;
         height: 40px;
 
         border-radius: 100%;
         margin: 0rem 0.2rem;
     }
+    .semPhoto {
+        width: 40px !important;
+        margin: -2rem 0.2rem;
+    }
 
     p {
-        margin: 0rem 0.2rem;
+        margin: -0.2rem 0.2rem;
         background-color: #FFFFFF;
         padding: 0.25rem 0.75rem;
         border-radius: 5px;

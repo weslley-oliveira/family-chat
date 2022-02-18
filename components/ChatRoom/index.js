@@ -15,6 +15,7 @@ export function ChatRoom(){
 
     useEffect(() => {
         dummy.current.scrollIntoView({ behavior: 'smooth' });
+        checkLast()
       });    
     
     const firestore = firebase.firestore();
@@ -26,20 +27,42 @@ export function ChatRoom(){
     const [messages] = useCollectionData(query, { idField: 'id' });
 
     const [formValue, setFormValue] = useState('');
+    const [lastUser, setLastUser] = useState("");
 
+    
+    function checkLast() {
+
+        if(messages){
+            let newArray = messages
+            let lastElement = newArray[newArray.length - 1]
+
+            if(lastElement){
+                setLastUser(lastElement.uid)
+            }
+        }
+    }   
 
     const sendMessage = async (e) => {
-        e.preventDefault();
+        e.preventDefault();        
+        
+        const { uid, photoURL} = auth.currentUser;
 
-        const { uid, photoURL } = auth.currentUser;
-
-        await messagesRef.add({
-        text: formValue,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        uid,
-        photoURL
-        })
-
+        if(lastUser !== uid){
+            await messagesRef.add({
+                text: formValue,
+                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                uid,
+                photoURL
+                })
+        } else {
+            await messagesRef.add({
+                text: formValue,
+                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                uid,
+                photoURL: null
+                })
+        }         
+      
         setFormValue('');
         dummy.current.scrollIntoView({ behavior: 'smooth' });
     }
@@ -68,13 +91,19 @@ export function ChatRoom(){
 
 
     function ChatMessage(props) {
+
     const { text, uid, photoURL } = props.message;
 
+    const   photoClass = photoURL === null ? `${styles.semPhoto}` : `${styles.photo}`;
+    
     const messageClass = uid === auth.currentUser.uid ? `${styles.messageSent}` : `${styles.messageReceived}`;
       
     return (<>
-        <div className={messageClass}>
-        <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
+        <div className={messageClass}>                
+        <img 
+            className={photoClass}
+            src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} 
+        />
         <p>{text}</p>
         </div>
     </>)
