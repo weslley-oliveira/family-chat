@@ -42,6 +42,15 @@ export function ChatRoom(){
         }
     }   
 
+    function scrollDown()
+    {
+        if(navigator.userAgent.indexOf("Safari") != -1) 
+    {
+        window.scrollTo(0, 1000);
+    }
+       
+    }
+
     const sendMessage = async (e) => {
         e.preventDefault();        
         
@@ -62,7 +71,8 @@ export function ChatRoom(){
                 photoURL: null
                 })
         }         
-      
+        
+        scrollDown()
         setFormValue('');
         dummy.current.scrollIntoView({ behavior: 'smooth' });
     }
