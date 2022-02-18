@@ -1,8 +1,11 @@
-.main {
-    min-height: 80vh;
-    background-image: url('../../public/bg.jpg');
-    padding-top: 60px;
-    padding-bottom: 75px;
+.main {   
+    
+   position: absolute;
+   
+    width: 100vw;
+    height: 100%;   
+    overflow: auto;
+    background-image: url('../../public/bg.jpg');    
 }
 
 .form {
@@ -11,11 +14,11 @@
     left: 0;
     right: 0;
 
+    height: 50px;
     padding: 1rem 1rem;
 
     background-color: #F0F2F5;
-    height: 40px;
-
+    
     display: flex;
     justify-content: space-between;
 

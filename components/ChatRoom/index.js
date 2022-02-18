@@ -105,7 +105,7 @@ export function ChatRoom(){
 
     const { text, uid, photoURL } = props.message;
 
-    const   photoClass = photoURL === null ? `${styles.semPhoto}` : `${styles.photo}`;
+    const  photoClass = photoURL === null ? `${styles.semPhoto}` : `${styles.photo}`;
     
     const messageClass = uid === auth.currentUser.uid ? `${styles.messageSent}` : `${styles.messageReceived}`;
       

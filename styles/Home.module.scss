@@ -1,15 +1,32 @@
 $base-color: #F0F2F5;
+.app {
+    
+    overflow: none !important;
+    position: relative;
+    margin: 0;
+}
+
+.section {
+    background-color: blue;
+   position: fixed;
+   bottom: 80px;
+   top: 66px;
+   left: 0;
+   right: 0;
+}
 
 .header {   
     background-color: $base-color;
-    position: fixed;
-    height: 40px;
+    position: fixed;    
+
+   
     left: 0;
     right: 0;
 
-    padding: .5rem 1rem;
+    padding: .5rem 0.2rem;
 
     display: flex;
+    align-items: center;
     justify-content: space-between;
 
     div {
@@ -18,27 +35,27 @@ $base-color: #F0F2F5;
         
         .logo {            
             border-radius: 100%;
-            width: 45px;
-            height: 45px;
+            width: 35px;
+            height: 35px;
 
-            background-color: white;
+            background-color: #30373b;
 
-            margin-right: 0.75rem;
+            margin-right: 0.2rem;
             
             display: flex;
             align-items: center;
             justify-content: center;
 
-            span{                  
-                font-size: 2rem;  
+            span{
+                padding-top: 5px;                  
+                font-size: 1.5rem;
+                color: white;
             }
         }
 
-        
-
         h1 {
+            color: #30373b;
             font-size: 16px;
-            font-weight: lighter;
         }
     }
     

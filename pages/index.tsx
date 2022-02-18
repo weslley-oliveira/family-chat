@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="./favicon.ico" />
       </Head>
 
-      <main>
+      <main className={styles.app}>
 
         {user ?
         <header className={styles.header}>
