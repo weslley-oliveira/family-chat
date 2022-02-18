@@ -2,7 +2,11 @@ $base-color: #F0F2F5;
 
 .header {   
     background-color: $base-color;
-    
+    position: fixed;
+    height: 40px;
+    left: 0;
+    right: 0;
+
     padding: .5rem 1rem;
 
     display: flex;

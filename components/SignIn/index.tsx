@@ -1,6 +1,8 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 
+import styles from './styles.module.scss'
+
 
 export function SignIn(){
     const auth = firebase.auth();
@@ -10,9 +12,9 @@ export function SignIn(){
       }
     
       return (
-        <>
-          <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
-          <p>Do not violate the community guidelines or you will be banned for life!</p>
-        </>
+        <div className={styles.signIn}>
+          <button className="sign-in" onClick={signInWithGoogle}>Entrar com Google</button>
+          <p>Nao dependemos mais do WhatsApp ou outro aplicativo de menssagem</p>
+        </div>
       )
 }

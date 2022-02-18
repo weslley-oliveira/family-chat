@@ -1,0 +1,98 @@
+.main {
+    background-image: url('../../public/bg.jpg');
+    padding-top: 60px;
+    padding-bottom: 75px;
+}
+
+.form {
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+
+    padding: 1rem 1rem;
+
+    background-color: #F0F2F5;
+    height: 40px;
+
+    display: flex;
+    justify-content: space-between;
+
+    input {
+        border: none;
+        border-radius: 15px;
+        padding-left: 1rem;
+        
+        width: 100%;
+    }
+    input:focus {
+        outline: none;
+    }
+
+    button {
+        border: none;
+        background-color: inherit;
+        display: flex;
+        align-items: center;
+        color: #63737C;
+        font-size: 2rem;
+
+        transform: rotate(45deg);
+        border-radius: 100%;
+
+        cursor: pointer;
+    }
+
+    button:disabled {
+        opacity: 0.2;
+    }
+
+
+}
+
+.messageSent {
+    display: flex;
+    align-items: center;  
+
+    flex-direction: row-reverse;
+    
+    padding: 0rem 1rem;
+    img {
+        width: 40px;
+        height: 40px;
+
+        border-radius: 100%;
+
+        margin: 0rem 0.75rem;
+    }
+
+    p {
+        background-color: #D9FDD3;
+        padding: 0.35rem ;
+        border-radius: 5px;
+        box-shadow: 1px 1px rgba(0, 0, 0, 0.233);
+    }
+    
+}
+
+.messageReceived {
+    display: flex;
+    align-items: center;  
+    
+    padding: 0rem 1rem;
+    img {
+        width: 40px;
+        height: 40px;
+
+        border-radius: 100%;
+
+        margin: 0rem 0.75rem;
+    }
+
+    p {
+        background-color: #FFFFFF;
+        padding: 0.5rem ;
+        border-radius: 5px;
+        box-shadow: 1px 1px rgba(0, 0, 0, 0.233);
+    }
+} 
