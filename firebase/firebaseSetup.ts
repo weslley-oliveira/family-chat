@@ -2,14 +2,14 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAkRYRbsLnZPuI6I2Mxq-b3L8_aKO5U74Y",
-    authDomain: "super-chat-cc1d0.firebaseapp.com",
-    projectId: "super-chat-cc1d0",
-    storageBucket: "super-chat-cc1d0.appspot.com",
-    messagingSenderId: "17057451193",
-    appId: "1:17057451193:web:4f22af5c100c21c3e95f68",
-};
-    
+    apiKey: `${process.env.NEXT_PUBLIC_API_KEY}`,
+    authDomain: `${process.env.NEXT_PUBLIC_AUTH_DOMAIN}`,
+    projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
+    storageBucket: `${process.env.NEXT_PUBLIC_STORAGE_BUCKET}`,
+    messagingSenderId: `${process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID}`,
+    appId: `${process.env.NEXT_PUBLIC_APP_ID}`,
+};    
+
 firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();

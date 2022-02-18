@@ -19,10 +19,12 @@ const Home: NextPage = () => {
       <Head>
         <title>Family Chat</title>
         <meta name="description" content="" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="./favicon.ico" />
       </Head>
 
       <main>
+
+        {user ?
         <header className={styles.header}>
           <div>
             <div className={styles.logo}>
@@ -32,6 +34,7 @@ const Home: NextPage = () => {
           </div>
           <SignOut />
         </header>
+        :""}
 
         <section>
           {user ? <ChatRoom /> : <SignIn />}
