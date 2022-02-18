@@ -40,6 +40,16 @@ const Home: NextPage = () => {
         <section className={styles.section}>
           {user ? <ChatRoom /> : <SignIn />}
         </section>
+        
+        <div className={styles.form}>
+          <input 
+              
+             
+              placeholder="Type a message" />
+
+          <button type="submit" >ok</button>
+
+        </div>
       </main>      
     </div>
   )

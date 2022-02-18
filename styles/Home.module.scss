@@ -59,3 +59,50 @@ $base-color: #F0F2F5;
     }
     
 }
+
+.form {
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+
+    height: 50px;
+    padding: 1rem 1rem;
+
+    background-color: #F0F2F5;
+    
+    display: flex;
+    justify-content: space-between;
+
+    input {
+        border: none;
+        border-radius: 15px;
+        padding-left: 1rem;
+        
+        width: 100%;
+    }
+    
+    input:focus {
+        outline: none;
+    }
+
+    button {
+        border: none;
+        background-color: inherit;
+        display: flex;
+        align-items: center;
+        color: #63737C;
+        font-size: 2rem;
+
+        transform: rotate(45deg);
+        border-radius: 100%;
+
+        cursor: pointer;
+    }
+
+    button:disabled {
+        opacity: 0.2;
+    }
+
+
+}

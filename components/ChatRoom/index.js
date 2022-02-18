@@ -87,7 +87,7 @@ export function ChatRoom(){
 
         </main>
 
-        <form className={styles.form} onSubmit={sendMessage}>
+        {/* <form className={styles.form} onSubmit={sendMessage}>
 
         <input 
             value={formValue} 
@@ -96,7 +96,7 @@ export function ChatRoom(){
 
         <button type="submit" disabled={!formValue}><RiSendPlaneFill/></button>
 
-        </form>
+        </form> */}
     </>)
     }
 
