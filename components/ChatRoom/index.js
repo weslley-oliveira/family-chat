@@ -46,7 +46,7 @@ export function ChatRoom(){
     {
         if(navigator.userAgent.indexOf("Safari") != -1) 
     {
-        window.scrollTo(0, 1000);
+        window.scrollTo(0, document.body.scrollHeight);
     }
        
     }
