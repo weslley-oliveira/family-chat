@@ -18,40 +18,21 @@ export function ChatRoom(){
       });    
 
 
-      function scrollDown()
-    {
+      function scrollDown(){
        
-        dummy.current.scrollIntoView({ behavior: 'smooth' });
-   
+        dummy.current.scrollIntoView({ behavior: 'smooth' });  
        
     }
-
-   
     
     const firestore = firebase.firestore();
-
    
     const messagesRef = firestore.collection('messages');
     const query = messagesRef.orderBy('createdAt');
 
     const [messages] = useCollectionData(query, { idField: 'id' });
-    
   
-    
-   
-
-    // function scrollDown()
-    // {
-    //     if(navigator.userAgent.indexOf("Safari") != -1) 
-    // {
-    //     window.scrollTo(0, document.body.scrollHeight);
-    // }
-       
-    // }
-
-
     return (<>
-        <main id="main" className={styles.main}>
+        <main  className={styles.main}>
 
         {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
 

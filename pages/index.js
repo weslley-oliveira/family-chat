@@ -19,8 +19,7 @@ import 'firebase/compat/firestore'
 export function Home(){
 
   useEffect(() => {
-    checkLast()
-    scrollDown()
+    checkLast()   
   });    
   
   const auth  = firebase.auth();
@@ -40,16 +39,8 @@ export function Home(){
                 setLastUser(lastElement.uid)
             }
         }
-    }
+    }   
     
-    function scrollDown()
-    {
-       
-        window.scrollTo(0, document.body.scrollHeight);
-   
-       
-    }
-
 
   const firestore = firebase.firestore();
 
@@ -79,11 +70,8 @@ export function Home(){
             uid,
             photoURL: null
             })
-    }         
-    
-    
+    }
     setFormValue('');
-    
 }
 
  
@@ -113,17 +101,17 @@ export function Home(){
         <section className={styles.section}>
           {user ? <ChatRoom/> : <SignIn />}
         </section>
-
+        {user ?
         <form className={styles.form} onSubmit={sendMessage}>
-
           <input 
               value={formValue} 
               onChange={(e) => setFormValue(e.target.value)} 
-              placeholder="Type a message" />
-
+              placeholder="Type a message" 
+          />
           <button type="submit" disabled={!formValue}><RiSendPlaneFill/></button>
 
         </form>
+        :""}
       </main>      
     </div>
   )
