@@ -13,8 +13,8 @@ export function SignIn(){
     
       return (
         <div className={styles.signIn}>
-          <button className="sign-in" onClick={signInWithGoogle}>Entrar com Google</button>
-          <p>Nao dependemos mais do WhatsApp ou outro aplicativo de menssagem</p>
+          <button className="sign-in" onClick={signInWithGoogle}>SignIn with Google</button>
+          <p>We no longer needed WhatsApp or another messaging app hahaha</p>
         </div>
       )
 }

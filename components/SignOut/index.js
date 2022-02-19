@@ -8,6 +8,10 @@ import { GoSignOut } from 'react-icons/go';
 export function SignOut(){
     const auth = firebase.auth();
     return auth.currentUser && (
-        <button className={styles.buttonSignOut} onClick={() => auth.signOut()}><GoSignOut/> Sair</button>
+        <button 
+          className={styles.buttonSignOut} 
+          onClick={() => auth.signOut()}>
+            <GoSignOut/> SignOut
+        </button>
       )
 }
