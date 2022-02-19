@@ -7,26 +7,57 @@ import { RiSendPlaneFill } from 'react-icons/ri';
 import { ChatRoom } from '../components/ChatRoom'
 import { SignIn } from '../components/SignIn'
 import { SignOut } from '../components/SignOut'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../context/AuthContext'
+
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 import firebase from "firebase/compat/app";
 import 'firebase/compat/auth'
 import 'firebase/compat/firestore'
 
-
-
-
 export function Home(){
 
+  useEffect(() => {
+    checkLast()
+    scrollDown()
+  });    
+  
   const auth  = firebase.auth();
   const user = useContext(AuthContext); 
   const [formValue, setFormValue] = useState('');
 
+  const [lastUser, setLastUser] = useState("");
+
+    
+    function checkLast() {
+
+        if(messages){
+            let newArray = messages
+            let lastElement = newArray[newArray.length - 1]
+
+            if(lastElement){
+                setLastUser(lastElement.uid)
+            }
+        }
+    }
+    
+    function scrollDown()
+    {
+       
+        window.scrollTo(0, document.body.scrollHeight);
+   
+       
+    }
+
+
   const firestore = firebase.firestore();
 
-    //const dummy = useRef();
+    
     const messagesRef = firestore.collection('messages');
+    const query = messagesRef.orderBy('createdAt');
+
+    const [messages] = useCollectionData(query, { idField: 'id' });
  
 
   const sendMessage = async (e) => {
@@ -34,25 +65,25 @@ export function Home(){
     
     const { uid, photoURL }  = auth.currentUser;
 
-    // if(lastUser !== uid){
+    if(lastUser !== uid){
         await messagesRef.add({
             text: formValue,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
             uid,
             photoURL
             })
-    // } else {
-    //     await messagesRef.add({
-    //         text: formValue,
-    //         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-    //         uid,
-    //         photoURL: null
-    //         })
-    // }         
+    } else {
+        await messagesRef.add({
+            text: formValue,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            uid,
+            photoURL: null
+            })
+    }         
     
     
     setFormValue('');
-    // dummy.current.scrollIntoView({ behavior: 'smooth' });
+    
 }
 
  
@@ -80,7 +111,7 @@ export function Home(){
         :""}
 
         <section className={styles.section}>
-          {user ? <ChatRoom send={sendMessage}/> : <SignIn />}
+          {user ? <ChatRoom/> : <SignIn />}
         </section>
 
         <form className={styles.form} onSubmit={sendMessage}>

@@ -9,23 +9,36 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 const auth = firebase.auth();
 
-export function ChatRoom(props){
+export function ChatRoom(){
 
-    // useEffect(() => {
-    //     // dummy.current.scrollIntoView({ behavior: 'smooth' });
-    //     scrollDown()
-    //     checkLast()
-    //   });    
+    const dummy = useRef();
+
+    useEffect(() => {
+        scrollDown()
+      });    
+
+
+      function scrollDown()
+    {
+       
+        dummy.current.scrollIntoView({ behavior: 'smooth' });
+   
+       
+    }
+
+   
     
     const firestore = firebase.firestore();
 
-    //const dummy = useRef();
+   
     const messagesRef = firestore.collection('messages');
     const query = messagesRef.orderBy('createdAt');
 
     const [messages] = useCollectionData(query, { idField: 'id' });
     
+  
     
+   
 
     // function scrollDown()
     // {
@@ -38,12 +51,12 @@ export function ChatRoom(props){
 
 
     return (<>
-        <main className={styles.main}>
+        <main id="main" className={styles.main}>
 
         {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
 
-        {/* <span ref={dummy}></span> */}
-
+       
+        <span ref={dummy}></span>
         </main>
 
         
