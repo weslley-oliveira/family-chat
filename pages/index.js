@@ -27,8 +27,7 @@ export function Home(){
 
     //const dummy = useRef();
     const messagesRef = firestore.collection('messages');
-    const query = messagesRef.orderBy('createdAt');
-
+ 
 
   const sendMessage = async (e) => {
     e.preventDefault();        
